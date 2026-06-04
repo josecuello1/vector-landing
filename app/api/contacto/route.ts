@@ -11,7 +11,7 @@ export async function POST(req: NextRequest) {
   const resend = new Resend(process.env.RESEND_API_KEY);
   const destino = process.env.CONTACT_EMAIL ?? "admin@vector.edu.co";
 
-  await resend.emails.send({
+  const { data, error } = await resend.emails.send({
     from: "VECTOR Landing <noreply@vectordatastudio.lat>",
     to: destino,
     replyTo: email,
@@ -41,5 +41,11 @@ export async function POST(req: NextRequest) {
     `,
   });
 
+  if (error) {
+    console.error("Resend error:", JSON.stringify(error));
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
+
+  console.log("Email enviado:", data?.id);
   return NextResponse.json({ ok: true });
 }
