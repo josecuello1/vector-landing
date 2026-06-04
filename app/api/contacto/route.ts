@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
+import { createClient } from "@supabase/supabase-js";
 
 export async function POST(req: NextRequest) {
   const { nombre, empresa, email, mensaje } = await req.json();
@@ -8,6 +9,24 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Todos los campos son requeridos" }, { status: 400 });
   }
 
+  // Guardar en Supabase
+  const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!,
+    { auth: { autoRefreshToken: false, persistSession: false } }
+  );
+
+  const { error: dbError } = await supabase.from("solicitudes_upgrade").insert({
+    empresa_nombre:  empresa,
+    user_nombre:     nombre,
+    plan_solicitado: "contacto_landing",
+    estado:          "pendiente",
+    notas:           `Email: ${email}\n\n${mensaje}`,
+  });
+
+  if (dbError) console.error("Supabase error:", dbError.message);
+
+  // Enviar email
   const resend = new Resend(process.env.RESEND_API_KEY);
   const destino = process.env.CONTACT_EMAIL ?? "admin@vector.edu.co";
 
