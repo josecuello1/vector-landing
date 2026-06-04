@@ -1,4 +1,5 @@
 import ContactForm from "./components/ContactForm";
+import CountUp from "./components/CountUp";
 
 function LogoMark({ className = "", bg = "white" }: { className?: string; bg?: string }) {
   return (
@@ -115,7 +116,7 @@ export default function LandingPage() {
           <h2 className="text-sm font-black tracking-[4px] uppercase text-vdark/40 mb-12">El costo de la incertidumbre</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div>
-              <p className="text-8xl font-black text-vdark leading-none mb-4">88%</p>
+              <CountUp target={88} suffix="%" className="text-8xl font-black text-vdark leading-none mb-4 tabular-nums" />
               <p className="text-vdark/70 text-lg leading-relaxed max-w-sm">
                 de las PYMES en LATAM tienen una adherencia mínima a la toma de decisiones basada en datos.
               </p>
