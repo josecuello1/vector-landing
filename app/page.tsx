@@ -1,5 +1,6 @@
 import ContactForm from "./components/ContactForm";
 import CountUp from "./components/CountUp";
+import NavLink from "./components/NavLink";
 
 function LogoMark({ className = "", bg = "white" }: { className?: string; bg?: string }) {
   return (
@@ -26,11 +27,11 @@ export default function LandingPage() {
             </div>
           </div>
           <div className="flex items-center gap-6">
-            <a href="#servicios" className="hidden md:block text-sm font-medium text-vdark/60 hover:text-vdark transition">Servicios</a>
-            <a href="#metodologia" className="hidden md:block text-sm font-medium text-vdark/60 hover:text-vdark transition">Metodología</a>
-            <a href="#contacto" className="px-5 py-2 bg-vblue text-white text-sm font-bold rounded-lg hover:bg-blue-700 transition">
+            <NavLink href="#servicios" className="hidden md:block text-sm font-medium text-vdark/60 hover:text-vdark transition">Servicios</NavLink>
+            <NavLink href="#metodologia" className="hidden md:block text-sm font-medium text-vdark/60 hover:text-vdark transition">Metodología</NavLink>
+            <NavLink href="#contacto" className="px-5 py-2 bg-vblue text-white text-sm font-bold rounded-lg hover:bg-blue-700 transition">
               Hablemos
-            </a>
+            </NavLink>
           </div>
         </div>
       </nav>
@@ -50,12 +51,12 @@ export default function LandingPage() {
                 Diseñamos ecosistemas de datos que se integran en tu operación y te permiten entender la realidad de tu negocio en tiempo real.
               </p>
               <div className="flex flex-wrap gap-4">
-                <a href="#contacto" className="px-8 py-4 bg-white text-vblue font-black text-base rounded-lg hover:bg-vgreen hover:text-vdark transition-colors">
+                <NavLink href="#contacto" className="px-8 py-4 bg-white text-vblue font-black text-base rounded-lg hover:bg-vgreen hover:text-vdark transition-colors">
                   Hablemos →
-                </a>
-                <a href="#servicios" className="px-8 py-4 border-2 border-white/30 text-white font-bold text-base rounded-lg hover:border-white/60 transition-colors">
+                </NavLink>
+                <NavLink href="#servicios" className="px-8 py-4 border-2 border-white/30 text-white font-bold text-base rounded-lg hover:border-white/60 transition-colors">
                   Ver servicios
-                </a>
+                </NavLink>
               </div>
             </div>
             <div className="flex justify-center lg:justify-end">
@@ -144,9 +145,9 @@ export default function LandingPage() {
               <p className="text-vdark/60 text-lg leading-relaxed mb-8">
                 Especializados en transformar cifras complejas en decisiones estratégicas. No entregamos gráficas — diseñamos hojas de ruta. Cada indicador en tu pantalla responde a una pregunta de rentabilidad.
               </p>
-              <a href="#contacto" className="inline-block px-8 py-4 bg-vblue text-white font-black rounded-lg hover:bg-blue-700 transition-colors">
+              <NavLink href="#contacto" className="inline-block px-8 py-4 bg-vblue text-white font-black rounded-lg hover:bg-blue-700 transition-colors">
                 Conversemos →
-              </a>
+              </NavLink>
             </div>
             <div className="grid grid-cols-2 gap-4">
               {[
@@ -301,9 +302,9 @@ export default function LandingPage() {
             </div>
             <p className="text-white/30 text-sm">© {new Date().getFullYear()} VECTOR Data Studio. Todos los derechos reservados.</p>
             <div className="flex gap-6">
-              <a href="#servicios" className="text-white/40 hover:text-white text-sm transition">Servicios</a>
-              <a href="#metodologia" className="text-white/40 hover:text-white text-sm transition">Metodología</a>
-              <a href="#contacto" className="text-white/40 hover:text-white text-sm transition">Contacto</a>
+              <NavLink href="#servicios" className="text-white/40 hover:text-white text-sm transition">Servicios</NavLink>
+              <NavLink href="#metodologia" className="text-white/40 hover:text-white text-sm transition">Metodología</NavLink>
+              <NavLink href="#contacto" className="text-white/40 hover:text-white text-sm transition">Contacto</NavLink>
             </div>
           </div>
         </div>
